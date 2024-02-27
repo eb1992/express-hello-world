@@ -2,8 +2,9 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3001;
 
-app.use(express.text());
-app.use(express.json());
+app.use((req, res, next) => {
+  express.text()(req, res, next);
+});
 
 app.get("/", (req, res) => {
   res.type('html').send(html)});
