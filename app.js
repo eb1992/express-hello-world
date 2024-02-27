@@ -2,12 +2,15 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3001;
 
+app.use(express.text());
+
 app.get("/", (req, res) => {
-  console.log("Req: " + req + "\nRes: " + res)
   res.type('html').send(html)});
 
 app.post("/", (req, res) => {
-  console.log("Req: " + req + "\nRes: " + res)
+  console.log("ReqData: " + req.body)
+
+  res.status(200).send("POST request received successfully");
 });
 
 const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
