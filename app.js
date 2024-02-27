@@ -8,7 +8,7 @@ app.get("/", (req, res) => {
   res.type('html').send(html)});
 
 app.post("/", (req, res) => {
-  console.log("ReqData: " + req.body)
+  console.log("ReqData: " + req.body.text());
 
   res.status(200).send("POST request received successfully");
 });
